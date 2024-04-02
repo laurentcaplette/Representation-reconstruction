@@ -9,7 +9,7 @@ from scipy.stats import rankdata
 from scipy.spatial.distance import squareform
 #nltk.download()
 
-homedir = '/Users/Laurent/Desktop/Hiver_2020/Deep_Learning'
+homedir = '' ### path of home directory
 
 np.random.seed()
 
@@ -110,4 +110,4 @@ np.save('rsa_sem_corr_perm.npy', sem_corr_perm)
 np.save('rsa_vis_corr_perm.npy', vis_corr_perm)
 
 qv = np.quantile(vis_corr_perm, .95) # stat thresh: is visual RDM fitting the data?
-qd = np.quantile(corr_diff_perm, .95) # stat thresh: is visual RDM fitting better than semantic RDM?
+qd = np.quantile(corr_diff_perm, .975) # stat thresh: is visual RDM fitting better than semantic RDM?

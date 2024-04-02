@@ -17,7 +17,7 @@ imagedir = '/gpfs/milgram/project/turk-browne/projects/dnn_revcorr/ILSVRC_2012_v
 # here load pretrained robust model from Madry Lab (robustness toolbox)
 ds = ImageNet('/tmp')
 model, _ = make_and_restore_model(arch='resnet50', dataset=ds, parallel=False,
-             resume_path='/gpfs/milgram/project/turk-browne/projects/dnn_revcorr/imagenet_l2_3_0.pt')
+             resume_path='') #### here include path of imagenet_l2_3_0.pt file
 model.cuda()
 model.eval() # so that in test mode
 

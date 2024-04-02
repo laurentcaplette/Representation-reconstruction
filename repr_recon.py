@@ -16,7 +16,7 @@ np.random.seed() # randomly initialize the seed
 # load robust ResNet-50
 ds = ImageNet('/tmp')
 model, _ = make_and_restore_model(arch='resnet50', dataset=ds, parallel=False,
-                                  resume_path='/gpfs/milgram/project/turk-browne/projects/dnn_revcorr/imagenet_l2_3_0.pt')
+                                  resume_path='') ### here include path of imagenet_l2_3_0.pt file
 model.cuda()
 model.eval()
 pass
@@ -158,7 +158,7 @@ spectrum_scale = np.repeat(np.expand_dims(np.repeat(np.expand_dims(spectrum_scal
 spectrum_scale = torch.tensor(spectrum_scale).cuda()
 
 comp_obj = pickle.load(open('pca_feats_object_final.obj', 'rb'))
-Fvecs = np.load('most_common_visgen_comps_final.npy') # visual PCs for each word
+Fvecs = np.load('most_named_words_comps_final.npy') # visual PCs for each word
 Fvecs = comp_obj.inverse_transform(Fvecs) # transform to channel activations
 NIMAGES = np.shape(Fvecs)[0]
 
@@ -213,6 +213,6 @@ for file_nb in range(NFILES):
         vis[im] = (255 * np.transpose(img.cpu().detach().numpy(), (1, 2, 0))).astype(np.uint8) # final image
 
         # save after each image in case of failure
-        output_file = h5py.File('vis_visgen_ultimatefinal.h5', 'w')
+        output_file = h5py.File('vis_mostnamed_final.h5', 'w')
         output_file.create_dataset('vis', data=vis)
         output_file.close()

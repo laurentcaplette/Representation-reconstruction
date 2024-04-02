@@ -23,7 +23,7 @@ np.random.seed()
 
 stop_words = nltk.corpus.stopwords.words('english')
 
-homedir = '/Users/Laurent/Desktop/Hiver_2020/Deep_Learning'
+homedir = '' ### path of home directory
 os.chdir(homedir)
 
 sym_spell = SymSpell(max_dictionary_edit_distance=2, prefix_length=7)

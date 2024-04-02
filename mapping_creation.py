@@ -17,7 +17,7 @@ from sklearn.metrics.pairwise import cosine_similarity as cos_sim
 
 np.random.seed() # randomly initialize the seed
 
-homedir = '/Users/Laurent/Desktop/Hiver_2020/Deep_Learning'
+homedir = '' ### path of home directory
 
 sym_spell = SymSpell(max_dictionary_edit_distance=2, prefix_length=7) # for correction of  spelling mistakes
 dictionary_path = pkg_resources.resource_filename("symspellpy", "frequency_dictionary_en_82_765.txt")
@@ -330,7 +330,7 @@ np.save('vis_comps_boot_bttm_final.npy', vis_comps_boot_bttm)
 np.save('vis_comps_boot_top_final.npy', vis_comps_boot_top)
 np.save('vis_comps_perm_final.npy', vis_comps_perm)
 
-# top words associated to semantic PCs
+# top words associated with semantic PCs
 nsemcomps = 6 # nb of semantic PCs
 nwords = 5 # nb of words
 sem_vecs = np.empty((0,glove_dim))
@@ -344,7 +344,7 @@ for comp_idx in range(nsemcomps):
         topwords[comp_idx,word_idx] = unique_words[np.argsort(sem_comps[:,comp_idx])[-word_idx-1]]
         topvals[comp_idx,word_idx] = np.sort(sem_comps[:,comp_idx])[-word_idx-1]
 
-# top words associated to visual PCs
+# top words associated with visual PCs
 nviscomps = 8 # nb of visual PCs
 nwords = 5 # nb of words
 topwords2 = np.zeros((nviscomps,nwords),dtype=np.object)

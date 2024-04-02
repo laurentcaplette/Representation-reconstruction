@@ -12,12 +12,12 @@ import h5py, pickle
 
 np.random.seed() # randomly initialize the seed
 
-imagedir = '/gpfs/milgram/project/turk-browne/projects/dnn_revcorr/ILSVRC_2012_val'
+imagedir = '' ### here, path of validation set image files
 
 # load robust ResNet-50 (available on Madry Lab website)
 ds = ImageNet('/tmp')
 model, _ = make_and_restore_model(arch='resnet50', dataset=ds, parallel=False,
-             resume_path='/gpfs/milgram/project/turk-browne/projects/dnn_revcorr/imagenet_l2_3_0.pt')
+             resume_path='') #### here include path of imagenet_l2_3_0.pt file
 model.cuda()
 model.eval()
 pass

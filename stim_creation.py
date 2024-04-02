@@ -13,13 +13,13 @@ from sklearn.covariance import ledoit_wolf
 
 np.random.seed() # randomly initialize the seed
 
-imagedir = '/gpfs/milgram/project/turk-browne/projects/dnn_revcorr/ILSVRC_2012_val'
-stimdir = '/gpfs/milgram/project/turk-browne/projects/dnn_revcorr/rnd_stim'
+imagedir = '' ### path of Imagenet validation set images
+stimdir = '' ### path of stimuli files
 
 # load robust ResNet-50
 ds = ImageNet('/tmp')
 model, _ = make_and_restore_model(arch='resnet50', dataset=ds, parallel=False,
-                                  resume_path='/gpfs/milgram/project/turk-browne/projects/dnn_revcorr/imagenet_l2_3_0.pt')
+                                  resume_path='') ### here include path of imagenet_l2_3_0.pt file
 model.cuda()
 model.eval()
 pass

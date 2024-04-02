@@ -6,7 +6,7 @@ import os, csv, h5py
 from PIL import Image
 
 np.random.seed()
-homedir = '/Users/Laurent/Desktop/Hiver_2020/Deep_Learning'
+homedir = '' ### path of home directory
 
 nBlocks = 7
 nTrialsInBlock = 50

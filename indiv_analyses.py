@@ -15,7 +15,7 @@ from symspellpy import SymSpell, Verbosity
 
 np.random.seed()
 
-homedir = '/Users/Laurent/Desktop/Hiver_2020/Deep_Learning'
+homedir = '' ### path of home directory
 os.chdir(homedir)
 
 sym_spell = SymSpell(max_dictionary_edit_distance=2) # for correction of spelling mistakes

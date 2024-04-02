@@ -6,7 +6,7 @@ import numpy as np
 
 np.random.seed()
 
-homedir = '/Users/Laurent/Desktop/Hiver_2020/Deep_Learning'
+homedir = ''  ### path of home directory
 os.chdir(homedir+'/final_validation_results')
 
 pattern = '[0-9]{1,3}_DNN.+csv'

@@ -7,7 +7,7 @@ import h5py, json, pickle
 
 np.random.seed() # randomly initialize the seed
 
-homedir = '/Users/Laurent/Desktop/Hiver_2020/Deep_Learning' # to replace
+homedir = '' ### path of home directory
 
 nwords = 10
 ncomps_feat = 213
@@ -60,7 +60,7 @@ for count, theword in enumerate(thewords):
     for perm in range(nperms):
         beta_perm_temp[perm] = feats_pc_temp.T @ y_pc_temp[np.random.permutation(np.shape(y_pc_temp)[0]),:ncomps_y]
 
-    word_sem_comps = pca_embed.transform(np.expand_dims(embed_mat[word_to_idx[theword], :glove_dim], axis=0))
+    word_sem_comps = pca_embed.transform(np.expand_dims(embed_mat[word_to_idx[theword], :glove_dim], axis=0))[0,:ncomps_y]
     noword_comps[count] = beta_temp @ word_sem_comps # compute vis comps vector for category
     for perm in range(nperms):
         noword_comps_perm[perm, count] = beta_perm_temp[perm] @ word_sem_comps

@@ -15,7 +15,7 @@ import h5py, json, pickle, urllib
 
 np.random.seed() # randomly initialize the seed
 
-homedir = '/Users/Laurent/Desktop/Hiver_2020/Deep_Learning'
+homedir = '' ### path of home directory
 
 classes = pickle.load(urllib.request.urlopen( # load ImageNet class names
 'https://gist.githubusercontent.com/yrevar/6135f1bd8dcf2e0cc683/raw/d133d61a09d7e5a3b36b8c111a8dd5c4b5d560ee/imagenet1000_clsid_to_human.pkl'))
@@ -202,7 +202,7 @@ np.save('visgen_comps_model_final.npy', vis_comps)
 all_feats = np.load('all_feats_final.npy')
 
 # inter-group differences analysis
-all_feats = np.load('allfeats_final.npy')
+all_feats = np.load('all_feats_final.npy')
 pca_feats = pickle.load(open('pca_feats_object_final.obj','rb'))
 pca_embed_model = pickle.load(open('pca_embed_model_object_final.obj','rb'))
 pca_embed_human = pickle.load(open('pca_embed_object_final.obj','rb'))
@@ -260,7 +260,6 @@ beta_model1 = feats_pc_model1.T@y_model_pc1 # simple weighted sum
 beta_model1_perm = np.zeros((nperms,ncomps_feat,ncomps_embed_model))
 for perm in range(nperms):
     beta_model1_perm[perm] = feats_pc_model1.T@y_model_pc1[np.random.permutation(np.shape(y_model_pc1)[0])]
-    idx = np.random.choice(np.shape(y_model_pc1)[0],np.shape(y_model_pc1)[0])
 for ii, word in enumerate(words):
     word_embedding = embed_mat[word_to_idx[word],:glove_dim]
     word_comps = pca_embed_model.transform(np.expand_dims(word_embedding,axis=0))
@@ -273,7 +272,6 @@ beta_model2 = feats_pc_model2.T@y_model_pc2 # simple weighted sum
 beta_model2_perm = np.zeros((nperms,ncomps_feat,ncomps_embed_model))
 for perm in range(nperms):
     beta_model2_perm[perm] = feats_pc_model2.T@y_model_pc2[np.random.permutation(np.shape(y_model_pc2)[0])]
-    idx = np.random.choice(np.shape(y_model_pc2)[0],np.shape(y_model_pc2)[0])
 for ii, word in enumerate(words):
     word_embedding = embed_mat[word_to_idx[word],:glove_dim]
     word_comps = pca_embed_model.transform(np.expand_dims(word_embedding,axis=0))
@@ -286,7 +284,6 @@ beta_human1 = feats_pc_human1.T@y_human_pc1 # simple weighted sum
 beta_human1_perm = np.zeros((nperms,ncomps_feat,ncomps_embed_human))
 for perm in range(nperms):
     beta_human1_perm[perm] = feats_pc_human1.T@y_human_pc1[np.random.permutation(np.shape(y_human_pc1)[0])]
-    idx = np.random.choice(np.shape(y_human_pc1)[0],np.shape(y_human_pc1)[0])
 for ii, word in enumerate(words):
     word_embedding = embed_mat[word_to_idx[word],:glove_dim]
     word_comps = pca_embed_human.transform(np.expand_dims(word_embedding,axis=0))
@@ -299,7 +296,6 @@ beta_human2 = feats_pc_human2.T@y_human_pc2 # simple weighted sum
 beta_human2_perm = np.zeros((nperms,ncomps_feat,ncomps_embed_human))
 for perm in range(nperms):
     beta_human2_perm[perm] = feats_pc_human2.T@y_human_pc2[np.random.permutation(np.shape(y_human_pc2)[0])]
-    idx = np.random.choice(np.shape(y_human_pc2)[0],np.shape(y_human_pc2)[0])
 for ii, word in enumerate(words):
     word_embedding = embed_mat[word_to_idx[word],:glove_dim]
     word_comps = pca_embed_human.transform(np.expand_dims(word_embedding,axis=0))
