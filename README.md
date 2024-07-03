@@ -1,4 +1,4 @@
-Code for "Computational reconstruction of mental representations using human behaviour" (Caplette & Turk-Browne, forthcoming, Nature Communications) (preprint: https://psyarxiv.com/7fdvw)
+Code for "Computational reconstruction of mental representations using human behaviour" (Caplette & Turk-Browne, 2024, Nature Communications) (preprint: https://psyarxiv.com/7fdvw)
 
 This python code should work on all platforms, however it has only been tested on macOS 11, 12 and 13. 
 Various Python libraries are required to run this code:
